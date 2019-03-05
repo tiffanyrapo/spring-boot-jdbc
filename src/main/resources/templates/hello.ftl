@@ -8,6 +8,9 @@
 </head>
 <body>
 <h1>${msg!}</h1>
+<#if Session.userid?exists>
+    ${Session.userid}
+</#if>
 <form action="/form-test" method="get">
     <table border="1">
         <tr>

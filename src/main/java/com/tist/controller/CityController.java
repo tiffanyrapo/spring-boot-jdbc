@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class CityController {
@@ -22,9 +23,10 @@ public class CityController {
     }
 
     @RequestMapping("/form-test")
-    public String formInput(City city, Model model) {
+    public String formInput(City city, Model model, HttpServletRequest request) {
         System.out.println(city);
         model.addAttribute("list", cityService.findAll());
+        request.getSession().setAttribute("userid", "test");
         return "hello";
     }
 }
