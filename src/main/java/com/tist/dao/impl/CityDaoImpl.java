@@ -44,17 +44,22 @@ public class CityDaoImpl implements DaoInterface<City> {
 
     @Override
     public City insert(City city) {
-        return null;
+        City insert = null;
+        insert = (City) jdbcTemplate.queryForObject("INSERT INTO MOCK_DATA_DEPT (ID_, DEPT_NAME_) VALUES (999, 'Product Management')", new CityMapper());
+        return insert;
     }
 
     @Override
     public City update(City city) {
-        return null;
+        City update = null;
+        update = (City) jdbcTemplate.queryForObject("UPDATE MOCK_DATA_DEPT SET ID_='10', DEPT_NAME_='Product Management'", new CityMapper());
+        return update;
     }
 
     @Override
     public void delete(City city) {
-
+        City delete = null;
+        delete = (City) jdbcTemplate.queryForObject("DELETE DROM MOCK_DATA_DEPT WHERE ID_='7'", new CityMapper());
     }
 
 //    @Override
