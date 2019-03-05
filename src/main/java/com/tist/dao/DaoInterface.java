@@ -1,5 +1,7 @@
 package com.tist.dao;
 
+import com.tist.domain.City;
+
 import java.util.List;
 
 /**
@@ -11,5 +13,11 @@ import java.util.List;
 public interface DaoInterface<T> {
     List<T> findAll();
 
-    List<T> findById(int id);
+    T findById(int id);
+
+    T insert(T t);
+
+    T update(T t);
+
+    void delete(T t);
 }
