@@ -1,6 +1,7 @@
 package com.tist.dao.impl;
 
 import com.tist.dao.DaoInterface;
+import com.tist.dao.DeptDao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import com.tist.domain.Dept;
@@ -13,7 +14,7 @@ import java.util.Map;
 
 @Repository
 //public class DeptDao implements DeptDaoInterface {
-public class DeptDaoImpl implements DaoInterface<Dept> {
+public class DeptDaoImpl implements DeptDao {
 
     @Resource
     private JdbcTemplate jdbcTemplate;
@@ -41,23 +42,23 @@ public class DeptDaoImpl implements DaoInterface<Dept> {
     @Override
     public Dept insert(Dept dept) {
         Dept insert = null;
-        insert = (Dept) jdbcTemplate.queryForObject("INSERT INTO MOCK_DATA_DEPT (ID_, DEPT_NAME_) VALUES (999, 'Product Management')", new DeptMapper());
-        return insert;
+        String sql = "INSERT INTO MOCK_DATA_DEPT (ID_, DEPT_NAME_) VALUES (" + dept.getId() + ", '" + dept.getName() + "')";
+        jdbcTemplate.update(sql);
+//        jdbcTemplate.update("INSERT INTO MOCK_DATA_DEPT (ID_, DEPT_NAME_) VALUES (?, ?)",new Object[]{dept.getId(),dept.getName()});
+        return null;
     }
 
     @Override
     public Dept update(Dept dept) {
-        Dept update = null;
-        update = (Dept) jdbcTemplate.queryForObject("UPDATE MOCK_DATA_DEPT SET ID_='10', DEPT_NAME_='Product Management'", new DeptMapper());
-        return update;
+//        Dept update = (Dept) jdbcTemplate.update("UPDATE MOCK_DATA_DEPT SET ID_='10', DEPT_NAME_='Product Management'");
+        return null;
     }
 
     @Override
     public void delete(Dept dept) {
         Dept delete = null;
-        delete = (Dept)jdbcTemplate.queryForObject("DELETE DROM MOCK_DATA_DEPT WHERE ID_='7'",new DeptMapper());
+        jdbcTemplate.update("DELETE DROM MOCK_DATA_DEPT WHERE ID_='7'");
     }
-
 
 //    @Override
 //    public List<Dept> findAll() {

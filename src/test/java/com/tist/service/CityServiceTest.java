@@ -1,6 +1,7 @@
 package com.tist.service;
 
 import com.tist.domain.City;
+import com.tist.service.impl.CityServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

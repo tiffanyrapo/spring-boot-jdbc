@@ -8,8 +8,8 @@ import java.util.List;
  *
  * @author sungyeh
  */
-public interface DeptDao {
-    List<Dept> findAll();
+public interface DeptDao extends DaoInterface<Dept> {
+/*    List<Dept> findAll();
 
     Dept findById(int id);
 
@@ -17,6 +17,6 @@ public interface DeptDao {
 
     Dept update(Dept dept);
 
-    void delete(Dept dept);
+    void delete(Dept dept);*/
 
 }

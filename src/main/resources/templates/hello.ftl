@@ -11,7 +11,7 @@
 <#if Session.userid?exists>
     ${Session.userid}
 </#if>
-<form action="/form-test" method="get">
+<form action="/form-test" method="post">
     <table border="1">
         <tr>
             <th>姓名</th>
@@ -28,6 +28,7 @@
         </tr>
     </table>
 </form>
+
 <#if list??>
     <#list list as city>
         <div>${city.name}</div>
