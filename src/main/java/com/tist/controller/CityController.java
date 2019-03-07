@@ -21,7 +21,10 @@ public class CityController {
         City city = new City();
         model.addAttribute("msg", "Hello Tiffany , this is freemarker");
         model.addAttribute("city", city);
-        return "hello";
+//        return "hello";
+//        return "redirect:/test";
+        return "test";
+
     }
 
     //@RequestMapping("/form-test")

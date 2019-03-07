@@ -7,9 +7,16 @@
     <link rel="stylesheet" type="text/css" href="/static/css/demo.css">
 </head>
 <body>
+
+<#assign name=1>
+<#assign name++>
+<h1>${name}</h1>
+
 <h1>${msg!}</h1>
 <#if Session.userid?exists>
     ${Session.userid}
+<#else>
+    <div>no session</div>
 </#if>
 <form action="/form-test" method="post">
     <table border="1">
@@ -34,5 +41,6 @@
         <div>${city.name}</div>
     </#list>
 </#if>
+<#include "footer.ftl">
 </body>
 </html>

@@ -12,5 +12,6 @@
         <div>${city.name}</div>
     </#list>
 </#if>
+<#include "footer.ftl">
 </body>
 </html>
