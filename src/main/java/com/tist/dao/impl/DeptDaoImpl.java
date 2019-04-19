@@ -1,6 +1,5 @@
 package com.tist.dao.impl;
 
-import com.tist.dao.DaoInterface;
 import com.tist.dao.DeptDao;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -8,11 +7,10 @@ import com.tist.domain.Dept;
 import com.tist.mapper.DeptMapper;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-@Repository
+
+@Repository("com.tist.DeptDao")
 //public class DeptDao implements DeptDaoInterface {
 public class DeptDaoImpl implements DeptDao {
 
@@ -42,33 +40,34 @@ public class DeptDaoImpl implements DeptDao {
     @Override
     public Dept insert(Dept dept) {
         Dept insert = null;
-        String sql = "INSERT INTO MOCK_DATA_DEPT (ID_, DEPT_NAME_) VALUES (" + dept.getId() + ", '" + dept.getName() + "')";
-        jdbcTemplate.update(sql);
+        insert = (Dept) jdbcTemplate.queryForObject("INSERT INTO MOCK_DATA_DEPT (ID_, DEPT_NAME_) VALUES (?, ?)", new DeptMapper());
+
 //        jdbcTemplate.update("INSERT INTO MOCK_DATA_DEPT (ID_, DEPT_NAME_) VALUES (?, ?)",new Object[]{dept.getId(),dept.getName()});
-        return null;
+        return insert;
     }
 
     @Override
     public Dept update(Dept dept) {
-//        Dept update = (Dept) jdbcTemplate.update("UPDATE MOCK_DATA_DEPT SET ID_='10', DEPT_NAME_='Product Management'");
-        return null;
+        Dept update = (Dept) jdbcTemplate.queryForObject("UPDATE MOCK_DATA_DEPT SET ID_="+dept.getId()+",DEPT_NAME_=?",new DeptMapper());
+        return update;
     }
 
     @Override
     public void delete(Dept dept) {
-        Dept delete = null;
-        jdbcTemplate.update("DELETE DROM MOCK_DATA_DEPT WHERE ID_='7'");
+        jdbcTemplate.update("DELETE DROM MOCK_DATA_DEPT WHERE (?)", new Object[]{dept.getId()});
     }
 
-//    @Override
-//    public List<Dept> findAll() {
-//        return null;
-//    }
-//
-//    @Override
-//    public Dept findById(int id) {
-//        return null;
-//    }
+/*
+@Override
+public List<Dept> findAll() {
+return null;
+}
+
+@Override
+public Dept findById(int id) {
+return null;
+}
+*/
 }
 
 

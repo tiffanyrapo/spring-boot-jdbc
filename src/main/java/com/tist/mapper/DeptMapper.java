@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DeptMapper implements RowMapper {
     @Override
     public Object mapRow(ResultSet resultSet, int i) throws SQLException {
-        return new Dept(resultSet.getInt("ID_"), resultSet.getString("DEPT_NAME_)"));
+        return new Dept(resultSet.getInt("ID_"), resultSet.getString("DEPT_NAME_"));
     }
 }
 

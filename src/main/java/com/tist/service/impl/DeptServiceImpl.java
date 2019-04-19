@@ -22,4 +22,11 @@ public class DeptServiceImpl implements ServiceInterface<Dept> {
 
     public Dept findById(int id){
         return deptDao.findById(id);}
+
+    @Override
+    public Dept findIdByName() {
+        return null;
+    }
+
+
 }

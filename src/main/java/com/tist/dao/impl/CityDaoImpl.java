@@ -1,5 +1,6 @@
 package com.tist.dao.impl;
 
+import com.tist.dao.CityDao;
 import com.tist.dao.DaoInterface;
 import com.tist.domain.City;
 import com.tist.mapper.CityMapper;
@@ -11,9 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Repository
-//public class CityDao implements CityDao{
-public class CityDaoImpl implements DaoInterface<City> {
+@Repository("com.tist.dao.CityDao")
+public class CityDaoImpl implements CityDao {
+//public class CityDaoImpl implements DaoInterface<City> {
 
     @Resource
     private JdbcTemplate jdbcTemplate;

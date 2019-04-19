@@ -9,16 +9,16 @@ import java.util.List;
  *
  * @author sungyeh
  */
-public interface CityDao {
-    List<City> findAll();
-    
-    City findById(int id);
-
-    City insert(City city);
-
-    City update(City city);
-
-    void delete(City city);
+public interface CityDao extends DaoInterface<City> {
+//    List<City> findAll();
+//
+//    City findById(int id);
+//
+//    City insert(City city);
+//
+//    City update(City city);
+//
+//    void delete(City city);
 
 
 }

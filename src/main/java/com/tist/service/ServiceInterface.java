@@ -10,10 +10,16 @@ import java.util.List;
  *
  *
  */
+@Service
 public interface ServiceInterface<T> {
 
     public List<T>  findAll();
 
     public T findById(int id);
 
+    public T findIdByName();
+
+
+
 }
+

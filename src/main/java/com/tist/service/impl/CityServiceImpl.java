@@ -1,9 +1,8 @@
 package com.tist.service.impl;
 
-import com.tist.dao.impl.CityDaoImpl;
+import com.tist.dao.CityDao;
 import com.tist.domain.City;
 import com.tist.service.CityService;
-import com.tist.service.ServiceInterface;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,7 +11,7 @@ import java.util.List;
 @Service
 public class CityServiceImpl implements CityService {
     @Resource
-    private CityDaoImpl dao;
+    private CityDao dao;
 
     @Override
     public List<City> findAll() {
@@ -26,7 +25,8 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public void findIdByName() {
-
+    public City findIdByName() {
+        return null;
     }
+
 }

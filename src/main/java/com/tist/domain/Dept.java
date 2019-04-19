@@ -31,8 +31,9 @@ public class Dept {
         return id;
     }
 
-    public void setId(int id) {
+    public int setId() {
         this.id = id;
+        return id;
     }
 
     public String getName() {
@@ -42,4 +43,5 @@ public class Dept {
     public void setName(String name) {
         this.name = name;
     }
+
 }

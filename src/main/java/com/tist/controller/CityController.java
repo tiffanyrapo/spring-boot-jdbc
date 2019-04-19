@@ -23,7 +23,7 @@ public class CityController {
         model.addAttribute("city", city);
 //        return "hello";
 //        return "redirect:/test";
-        return "test";
+        return "hello";
 
     }
 
