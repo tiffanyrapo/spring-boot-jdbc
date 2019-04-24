@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import javax.transaction.Transactional;
-
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * 簡易單元測試練習
@@ -28,13 +28,13 @@ public class DeptServiceTest {
       System.out.println(deptService.findAll());
       System.out.println(deptService.findById(3));
       Dept dept=deptService.findById(3);
-      //assertThat
-//      System.out.println(dept);
-//      dept=deptService.findById(30);
-//     // assertThat
-//      System.out.println(dept);
-//      //assertThat
-//      System.out.println(deptService.findAll().size());
+      assertThat(dept).isNotNull();
+      System.out.println(dept);
+      dept=deptService.findById(30);
+      assertThat(dept).isNull();
+      System.out.println(dept);
+      assertThat(deptService.findAll().size()).isEqualTo(10);
+      System.out.println(deptService.findAll().size());
        }
 
 
